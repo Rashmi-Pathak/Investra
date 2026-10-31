@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../sqlite/database.db"
+}
+
+model User {
+  id                String   @id @default(cuid())
+  email             String   @unique
+  name              String
+  avatarUrl         String?
+  mode              String   @default("REAL_LIFE") // BEGINNER | REAL_LIFE
+  brokerTheme       String   @default("ORIGINAL")  // ORIGINAL | GROWW | KITE | UPSTOX | ANGEL | TRADINGVIEW | ROBINHOOD
+  xp                Int      @default(1450)
+  streakDays        Int      @default(12)
+  monthlySalary     Float    @default(45000)
+  monthlyExpenses   Float    @default(33000)
+  monthlySipBudget  Float    @default(5000)
+  bankBalance       Float    @default(12000)
+  brokerWallet      Float    @default(28500)
+  emotionalScore    Int      @default(84)
+  riskAppetite      String   @default("MEDIUM")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  category    String
+  difficulty  String
+  xpReward    Int      @default(250)
+  thumbnail   String?
+  createdAt   DateTime @default(now())
+}
+
+model PortfolioHolding {
+  id           String   @id @default(cuid())
+  userId       String
+  symbol       String
+  companyName  String
+  sector       String
+  quantity     Int
+  avgBuyPrice  Float
+  currentPrice Float
+  updatedAt    DateTime @updatedAt
+}
+
+model Order {
+  id               String   @id @default(cuid())
+  userId           String
+  symbol           String
+  side             String   // BUY | SELL
+  quantity         Int
+  price            Float
+  status           String   @default("EXECUTED")
+  psychologyTag    String?  // DISCIPLINED | FOMO | NO_STOP_LOSS | OVERLEVERAGED
+  aiCoachFeedback  String?
+  createdAt        DateTime @default(now())
+}
+
+model BankTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  category    String   // SALARY | RENT | FOOD | EMI | INVESTMENT_TRANSFER
+  type        String   // CREDIT | DEBIT
+  amount      Float
+  balanceAfter Float
+  createdAt   DateTime @default(now())
+}
