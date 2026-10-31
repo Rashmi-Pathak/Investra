@@ -1,0 +1,42 @@
+{
+  "orders": [
+    {
+      "id": "ord-1793483688492",
+      "time": "03:24:48 AM",
+      "symbol": "RELIANCE",
+      "name": "Reliance Industries Limited",
+      "orderType": "MARKET",
+      "productType": "CNC",
+      "side": "SELL",
+      "qty": 10,
+      "executedQty": 10,
+      "price": 2742.5,
+      "status": "FILLED"
+    },
+    {
+      "id": "ord-1793483658585",
+      "time": "03:24:18 AM",
+      "symbol": "RELIANCE",
+      "name": "Reliance Industries Limited",
+      "orderType": "MARKET",
+      "productType": "CNC",
+      "side": "BUY",
+      "qty": 27,
+      "executedQty": 27,
+      "price": 2742.5,
+      "status": "FILLED"
+    }
+  ],
+  "holdings": [
+    {
+      "symbol": "RELIANCE",
+      "name": "Reliance Industries Limited",
+      "sector": "Energy",
+      "qty": 17,
+      "avgPrice": 2742.5,
+      "ltp": 2742.5
+    }
+  ],
+  "walletBalance": 53377.5,
+  "lastUpdated": "2026-10-31T21:54:48.520Z"
+}
