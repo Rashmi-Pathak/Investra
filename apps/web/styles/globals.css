@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --investra-bg-primary: #060908;
+  --investra-bg-secondary: #0B100E;
+  --investra-surface: #0E1512;
+  --investra-elevated: #141E1A;
+  --investra-accent: #C98A4A;
+  --investra-accent-secondary: #D8A56D;
+  --investra-warm-brown: #5A463E;
+  --investra-deep-brown: #382B27;
+  --investra-beige: #F2D7B6;
+  --investra-text-primary: #FAF7F5;
+  --investra-text-secondary: #B9B4B1;
+  --investra-text-muted: #7A7471;
+  --investra-border: rgba(201, 138, 74, 0.22);
+  --investra-success: #3EDC81;
+  --investra-loss: #FF5C5C;
+  --investra-warning: #FFC857;
+}
+
+/* Crisp Square / Cornered Terminal Rule across ALL components */
+*,
+*::before,
+*::after {
+  border-radius: 0px !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #090909;
+  color: #FAF7F5;
+}
+
+body {
+  background-color: #090909;
+  background-image:
+    linear-gradient(to right, rgba(201, 138, 74, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 138, 74, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+  color: #FAF7F5;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(201, 138, 74, 0.35);
+  color: #F2D7B6;
+}
+
+/* Crisp Cornered Terminal Card System */
+.investra-glass {
+  background: rgba(17, 17, 17, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 138, 74, 0.24);
+}
+
+.investra-card {
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0.95) 0%, rgba(12, 12, 12, 0.98) 100%);
+  border: 1px solid rgba(201, 138, 74, 0.22);
+  box-shadow: 0 0 24px -10px rgba(201, 138, 74, 0.15);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.investra-card:hover {
+  border-color: rgba(201, 138, 74, 0.55);
+  box-shadow: 0 0 32px -8px rgba(201, 138, 74, 0.28);
+}
+
+/* Highcharts Stock Styled Mode & Custom Candlestick/Volume Classes */
+.highcharts-background {
+  fill: #090909 !important;
+}
+.highcharts-plot-background {
+  fill: #0B0B0B !important;
+}
+.highcharts-grid-line {
+  stroke: rgba(255, 255, 255, 0.05) !important;
+}
+.highcharts-axis-line,
+.highcharts-tick {
+  stroke: rgba(201, 138, 74, 0.2) !important;
+}
+.highcharts-axis-labels text {
+  fill: #9CA3AF !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 10px !important;
+}
+.highcharts-point-up {
+  fill: #51af7b !important;
+  stroke: #51af7b !important;
+}
+.highcharts-point-down {
+  fill: #ff6e6e !important;
+  stroke: #ff6e6e !important;
+}
+.highcharts-candlestick-series .highcharts-point-up {
+  fill: #51af7b !important;
+  stroke: #51af7b !important;
+}
+.highcharts-candlestick-series .highcharts-point-down {
+  fill: #ff6e6e !important;
+  stroke: #ff6e6e !important;
+}
+.highcharts-crosshair-custom {
+  stroke: #C98A4A !important;
+  stroke-dasharray: 3, 3 !important;
+  stroke-width: 1px !important;
+}
+
+/* Custom Subtle Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+::-webkit-scrollbar-thumb {
+  background: #382B27;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C98A4A;
+}
+
+/* Ambient Floating & Slow Rotating Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1deg);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 36s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinSlow 48s linear infinite reverse;
+}
